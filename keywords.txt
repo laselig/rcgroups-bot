@@ -1,0 +1,301 @@
+# test
+central
+Central
+
+# misc words (speed pan, dyna jet, floats, ...)
+# misc words (Prather pitch gauge)
+# misc words (dolly -> guy who sells/makes takeoff dollys)
+speed
+estate
+vintage
+float
+dyna
+dyna torque
+dyno
+torque
+dynamometer
+American Hobby Products
+test stand
+vortac
+prather
+pitch gauge
+dolly
+#retracts
+#retract
+turnbuckles
+propeller
+prop
+# for books: volume, e.g. RCM volumes I, II ...
+volume
+
+# hotliner, e.g. F3B
+Virchenko
+Yuri
+virage
+virus
+
+# Cox Sky Rally 049
+Rally
+
+
+# misc stuff and parts
+canopies
+canopy
+cockpit kit
+book
+dave brown
+fs one
+fsone
+klett
+woodpecker
+swinge
+eaglet
+
+
+
+# FPV thread
+monitor
+on camera
+bestview
+diversity
+
+# cox engines, http://www.mh-aerotools.de/airfoils/cox_frameset.htm
+# 1/2a
+010
+020
+1 2a
+1 2 a
+babe bee
+black widow
+champion
+conquest
+cox engine mount
+cox mount
+cox tank
+cox
+doodle
+dragon fly
+dragonfly
+drome
+golden
+golden bee
+killer bee
+golden beee
+killer beee
+lighting bug
+lightning bug
+medallion
+o-forty-bee
+pee wee
+qrc
+queen bee
+peee weee
+queen beee
+rodzy
+space hopper
+space bug
+strato bug
+super bee
+spook
+tee dee
+teee dee
+tee deee
+teee deee
+tee wee
+tee weee
+teee weee
+texaco
+thermal hopper
+thimble
+venom
+Potenza
+
+# Kustom Kraftsman
+Kustom
+Kraftsman
+Kraftsmanship
+
+# other engines
+webra
+co2
+manifold
+jett
+#o s
+#o s max
+#os max
+#os
+
+# engine parts
+glow plug
+glow plugs
+plug
+glowbee
+globee
+glo bee
+glow bee
+
+# 049 muffler
+hiscott
+
+# wheels and landing gear
+flywheelz
+gear
+kraft
+landing
+skylite
+spoke
+wire wheels
+TOPQ6000
+tail wheel
+tailwheel
+vintage wheel
+fults
+fult
+wheel
+veco
+
+# MACS Pipes, Semco, mufflers
+3.5cc
+header
+mac s
+macs
+muff l aire
+mufflers
+pipe
+semco
+wizard
+wizzard
+tuned
+Hatori
+
+# books
+book
+higley
+
+# free flight gear
+jetex
+selig
+
+# kits (supra includes Drela Supra and Hanno Prettner Supra Fly)
+# kits (Metaline Skyvahl, Midwest Hots II could go for $300)
+# kits (Flyline Models Fairchild "22" goes for $150, 47 inch span)
+ace
+afi
+airtronics
+andrew
+astroflight
+astro flight
+astro flite
+berkeley
+berkley
+bingo
+bob holman
+bob smith
+bridi
+brodak
+comet
+debolt
+doc mat
+duelist
+dynaflite
+dynaflight
+fairchild
+flyline
+fokker
+jasco
+jemco
+jetco
+jetfire
+klingberg
+klingeberg
+metaline
+midwest
+midwest hots
+northeast
+north east
+olympic
+pica
+power pod
+proctor
+procter
+qee tee
+q tee
+ringmaster
+robinhood
+sig
+skyvahl
+stick
+stik
+sterling
+supra
+talon
+telemaster
+thermic
+tiger 2
+tiger 60
+ugly
+ugly stick
+ugly stik
+ultra sport
+ultra sti
+ultrasport
+ultrasti
+vk model
+vk wheel
+
+# kits saiplanes (aquila, legionaire, grand esprit, aquila grande)
+aquila
+grand
+legion
+Legionair
+windfree
+wanderer
+# Hobbyking Aerosport 103 kit
+aerosport
+
+# U/C stuff
+walker
+
+# williams
+wasp
+william
+
+# motor mounts
+aluminum motor
+aluminum wheel
+dubro soft
+engine mount
+mount
+tatone
+vibration
+
+# building tools, e.g. Great Planes
+bar sander
+century iron
+contour
+easy sand
+easy touch
+easy bar
+iron
+perma-grit
+permagrit
+sealing
+smart stripe
+smart strip
+smartstripe
+smartstrip
+trimmer
+
+# companies - general
+h9
+hangar 9
+hanger 9
+hanger9
+great planes
+top flight
+top flite
+b b special
+goldberg
+
+# C.B. Associates landing gear stuff
+Associates

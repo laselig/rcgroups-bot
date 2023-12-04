@@ -1,0 +1,58 @@
+# avoids piper for pipe
+piper
+
+# searching for ultra stick, avoids sticker
+sticker
+
+# avoids various for "o-s" and "os" engines
+nosen
+composite
+servos
+almost
+prosight
+crossfire
+osd
+o sa
+o sb
+o sc
+o sd
+o se
+o sf
+o sg
+o sh
+o si
+o sj
+o sk
+o sl
+o sm
+o sn
+o so
+o sp
+o sq
+o sr
+o ss
+o st
+o su
+o sv
+o sw
+o sx
+o sy
+o sz
+
+# avoids various "eagle"
+eagletree
+
+# searching for "glow plug" and avoids "plug and play"
+plug and play
+plug and
+
+# engine stuff, carburetor
+carb
+
+# not buying any robart stuff
+robart
+
+# avoiding arfs
+arf
+
+
