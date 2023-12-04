@@ -240,7 +240,7 @@ while(True):
 
 
 
-		if(body != "Found the following links - sent from Heroku:\n"):
+		if(body != "Found the following links - sent from Heroku Web:\n"):
 			central = timezone('US/Central')
 			ct_time = datetime.now(central)
 			timestr = ct_time.strftime("%m/%d/%Y, %H:%M:%S")
