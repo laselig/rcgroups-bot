@@ -7,7 +7,7 @@ from pytz import timezone
 
 import time, random, smtplib, requests
 from fake_useragent import UserAgent
-from requests_ip_rotator import ApiGateway
+# from requests_ip_rotator import ApiGateway
 
 
 
