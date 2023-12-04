@@ -127,8 +127,8 @@ def build_forums_list(config):
 		forums.remove(radio)
 
 	return(forums)
-# search_terms = get_terms("/Users/lselig/Desktop/rcgroups/keywords.txt")
-# watchlist = get_terms("/Users/lselig/Desktop/rcgroups/usernames.txt")
+# search_terms = get_terms("keywords.txt")
+# watchlist = get_terms("usernames.txt")
 
 
 
@@ -136,12 +136,12 @@ while(True):
 	potential = []
 	names = []
 	prices = []
-	search_terms = get_terms("/Users/lselig/Desktop/rcgroups/keywords.txt")
-	watchlist = get_names("/Users/lselig/Desktop/rcgroups/usernames.txt")
-	not_terms = get_terms("/Users/lselig/Desktop/rcgroups/not_keywords.txt")
-	not_watchlist = get_names("/Users/lselig/Desktop/rcgroups/not_usernames.txt")
+	search_terms = get_terms("keywords.txt")
+	watchlist = get_names("usernames.txt")
+	not_terms = get_terms("not_keywords.txt")
+	not_watchlist = get_names("not_usernames.txt")
 
-	config = read_config("/Users/lselig/Desktop/rcgroups/scraper.config")
+	config = read_config("scraper.config")
 	forums = build_forums_list(config)
 	max_price = float(config["ignore_PriceGreaterThan"])
 
@@ -152,7 +152,7 @@ while(True):
 	else:
 		for forum in forums:
 			forum_short = forum.split("/")[-2]
-			# ip_addresses = read_ips("/Users/lselig/Desktop/rcgroups/http_proxies.txt")
+			# ip_addresses = read_ips("http_proxies.txt")
 			page = proxy_request(forum)
 # 			page = session.get(forum)
 # 			page = requests.get(forum)
@@ -216,10 +216,10 @@ while(True):
 
 		body = "Found the following links:\n"
 		print(body)
-		with open("/Users/lselig/Desktop/rcgroups/seen.txt", 'r') as seen:
+		with open("seen.txt", 'r') as seen:
 			seen_threads = [a.strip() for a in seen.readlines()]
 
-		with open("/Users/lselig/Desktop/rcgroups/seen.txt", "a") as append:
+		with open("seen.txt", "a") as append:
 			for i, link in enumerate(potential):
 				# print(i)
 				if(link not in seen_threads):
@@ -240,7 +240,7 @@ while(True):
 
 
 
-		if(body != "Found the following links:\n"):
+		if(body != "Found the following links - sent from Heroku:\n"):
 			central = timezone('US/Central')
 			ct_time = datetime.now(central)
 			timestr = ct_time.strftime("%m/%d/%Y, %H:%M:%S")
