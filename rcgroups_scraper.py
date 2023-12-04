@@ -5,7 +5,7 @@ from pytz import timezone
 # from twilio.rest import Client
 # from requests_ip_rotator import ApiGateway, EXTRA_REGIONS
 
-import time, random, smtplib
+import time, random, smtplib, requests
 from fake_useragent import UserAgent
 
 # from proxy_requests import ProxyRequests
@@ -82,7 +82,11 @@ def read_ips(filename):
 #    except:
 #        pass
 def proxy_request(url):
+	response = requests.get(url)
+	print (response.status_code)
+	# return response.text
 	ua = UserAgent()
+
 	random_ua = ua.random
 	import subprocess
 	result = subprocess.run(
