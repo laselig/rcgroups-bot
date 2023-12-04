@@ -159,6 +159,7 @@ while(True):
 			soup = BeautifulSoup(page, 'html.parser')
 			titles = soup.find_all('tr', valign = "top")
 			for t in titles:
+				print(t)
 				link = t.find('a')['href']
 				link = link.split("&")
 				link = link[0]
@@ -214,7 +215,8 @@ while(True):
 							prices.append(price.replace("\\r", "").replace("\\n", "").replace("\\t", ""))
 							break
 
-		body = "Found the following links:\n"
+		body_name = "Found the following links - sent from Heroku Web:\n"
+		body = body_name
 		print(body)
 		with open("seen.txt", 'r') as seen:
 			seen_threads = [a.strip() for a in seen.readlines()]
@@ -240,7 +242,7 @@ while(True):
 
 
 
-		if(body != "Found the following links - sent from Heroku Web:\n"):
+		if(body != body_name):
 			central = timezone('US/Central')
 			ct_time = datetime.now(central)
 			timestr = ct_time.strftime("%m/%d/%Y, %H:%M:%S")
