@@ -3,12 +3,12 @@ from email.mime.text import MIMEText
 from datetime import datetime
 from pytz import timezone
 # from twilio.rest import Client
-from requests_ip_rotator import ApiGateway, EXTRA_REGIONS
+# from requests_ip_rotator import ApiGateway, EXTRA_REGIONS
 
-import time, random, smtplib, requests
+import time, random, smtplib
 from fake_useragent import UserAgent
 
-from proxy_requests import ProxyRequests
+# from proxy_requests import ProxyRequests
 
 
 
