@@ -7,6 +7,14 @@ from pytz import timezone
 
 import time, random, smtplib, requests
 from fake_useragent import UserAgent
+from requests_ip_rotator import ApiGateway
+
+
+
+
+
+ACCESS_KEY = "AKIAVH75IAV62FZGFFMK"
+SECRET_KEY = "8oOjTJ3oWMA9MUVU/yUlaYbUt+yGCd7p7lkmecoZ"
 
 # from proxy_requests import ProxyRequests
 
@@ -82,18 +90,33 @@ def read_ips(filename):
 #    except:
 #        pass
 def proxy_request(url):
-	response = requests.get(url)
-	print (response.status_code)
+	print(url)
+
+	# gateway = ApiGateway("https://rcgroups.com", ACCESS_KEY, SECRET_KEY, region="us-east-1")
+	# gateway.start()
+	# session = requests.Session()
+	# session.mount("https://rcgroups.com", gateway)
+	# response = requests.get(url)
+	# print (response.status_code)
 	# return response.text
+
 	ua = UserAgent()
 
-	random_ua = ua.random
 	import subprocess
-	result = subprocess.run(
-		["curl", "-v", url],
-		capture_output=True)
-	return str(result.stdout)
-	# print(result)
+	while(True):
+		fake_ip = random.choice(read_ips("http_proxies.txt")).strip()
+		print("Trying", fake_ip)
+		try:
+			result = subprocess.run(
+				["curl", "-x", fake_ip, "-v", url],
+				capture_output=True)
+			print(result)
+			return str(result.stdout)
+		except:
+			pass
+
+
+# print(result)
 	# print(result.stdout)
 
 
@@ -159,7 +182,7 @@ while(True):
 			# ip_addresses = read_ips("http_proxies.txt")
 			page = proxy_request(forum)
 # 			page = session.get(forum)
-			print(page)
+# 			print(page)
 # 			page = requests.get(forum)
 			soup = BeautifulSoup(page, 'html.parser')
 			titles = soup.find_all('tr', valign = "top")
@@ -285,5 +308,5 @@ while(True):
 
 
 		rand_min = random.randint(3, 4)
-		time.sleep(60 * rand_min)
+		# time.sleep(60 * rand_min)
 		# break
