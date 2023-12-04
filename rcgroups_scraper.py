@@ -155,11 +155,12 @@ while(True):
 			# ip_addresses = read_ips("http_proxies.txt")
 			page = proxy_request(forum)
 # 			page = session.get(forum)
+			print(page)
 # 			page = requests.get(forum)
 			soup = BeautifulSoup(page, 'html.parser')
 			titles = soup.find_all('tr', valign = "top")
 			for t in titles:
-				print(t)
+				# print(t.text.strip())
 				link = t.find('a')['href']
 				link = link.split("&")
 				link = link[0]
