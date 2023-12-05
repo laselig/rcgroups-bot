@@ -2,23 +2,12 @@ from bs4 import BeautifulSoup
 from email.mime.text import MIMEText
 from datetime import datetime
 from pytz import timezone
-# from twilio.rest import Client
-# from requests_ip_rotator import ApiGateway, EXTRA_REGIONS
 
 import time, random, smtplib, requests
 from fake_useragent import UserAgent
-# from requests_ip_rotator import ApiGateway
-
-
-
-
 
 ACCESS_KEY = "AKIAVH75IAV62FZGFFMK"
 SECRET_KEY = "8oOjTJ3oWMA9MUVU/yUlaYbUt+yGCd7p7lkmecoZ"
-
-# from proxy_requests import ProxyRequests
-
-
 
 airplanes = "https://www.rcgroups.com/aircraft-fuel-airplanes-fs-w-38/"
 engines = "https://www.rcgroups.com/aircraft-fuel-engines-and-accessories-fs-w-362/"
@@ -83,45 +72,47 @@ def read_ips(filename):
 	return lines
 
 
-# def send_request(session, proxy, url):
-#    try:
-#        response = session.get(url, proxies={'http': f"http://{proxy}"})
-#        print(response.json())
-#    except:
-#        pass
+# def read_bad_proxies(filename):
+# 	with open(filename, 'r') as f:
+# 		lines = f.readlines()
+# 	return lines
+
+
 def proxy_request(url):
 	print(url)
-
-	# gateway = ApiGateway("https://rcgroups.com", ACCESS_KEY, SECRET_KEY, region="us-east-1")
-	# gateway.start()
-	# session = requests.Session()
-	# session.mount("https://rcgroups.com", gateway)
-	# response = requests.get(url)
-	# print (response.status_code)
-	# return response.text
-
-	ua = UserAgent()
-
 	import subprocess
+
 	while(True):
-		fake_ip = random.choice(read_ips("http_proxies.txt")).strip()
-		print("Trying", fake_ip)
-		try:
-			result = subprocess.run(
-				["curl", "-x", fake_ip, "-v", url],
-				capture_output=True)
-			print(result)
+		bad_proxies = set([x.strip() for x in read_ips("bad_proxies.txt")])
+		# refresh ips only at 6pm
+		if(datetime.now().hour == 17):
+			all_proxies = subprocess.run( ["curl", "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt", "-o", "all_proxies.txt"])
+		all_proxies = set([x.strip() for x in read_ips("all_proxies.txt")])
+
+		good_proxies = set([x.strip() for x in read_ips("good_proxies.txt")])
+		viable_proxies = []
+		if(len(good_proxies) > 0):
+			viable_proxies = list(good_proxies - bad_proxies)
+
+		if(len(viable_proxies) == 0):
+			viable_proxies = list(all_proxies - bad_proxies)
+
+		# get a fake ip for proxy
+		fake_ip = random.choice(viable_proxies)
+		print(f"Using proxy: {fake_ip}")
+		result = subprocess.run(
+			["curl", "-x", fake_ip, "-v", url],
+			capture_output=True)
+
+		print(f"Return code: {result.returncode}")
+		# request failed for some reason
+		if(result.returncode != 0):
+			with open("bad_proxies.txt", "a") as append:
+				append.write(fake_ip + "\n")
+		else:
+			with open("good_proxies.txt", "a") as append:
+				append.write(fake_ip + "\n")
 			return str(result.stdout)
-		except:
-			pass
-
-
-# print(result)
-	# print(result.stdout)
-
-
-
-
 def extract_price(price):
 	nums = [str(x) for x in range(0, 10)] + ["."]
 	buffer = ""
@@ -153,7 +144,9 @@ def build_forums_list(config):
 	if(config["search_Radio"] == 0):
 		forums.remove(radio)
 
+	# return [airplanes]
 	return(forums)
+
 # search_terms = get_terms("keywords.txt")
 # watchlist = get_terms("usernames.txt")
 
@@ -179,8 +172,9 @@ while(True):
 	else:
 		for forum in forums:
 			forum_short = forum.split("/")[-2]
-			# ip_addresses = read_ips("http_proxies.txt")
+			# ip_addresses = read_ips("all_proxies.txt")
 			page = proxy_request(forum)
+			# print(page)
 # 			page = session.get(forum)
 # 			print(page)
 # 			page = requests.get(forum)
@@ -307,6 +301,6 @@ while(True):
 		#requests.get("https://www.inertiasoft.com/")
 
 
-		rand_min = random.randint(3, 4)
+		# rand_min = random.randint(3, 4)
 		# time.sleep(60 * rand_min)
 		# break
