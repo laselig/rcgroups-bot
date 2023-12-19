@@ -153,6 +153,8 @@ def build_forums_list(config):
 
 
 while(True):
+	counter = 0
+	start = datetime.now()
 	potential = []
 	names = []
 	prices = []
@@ -172,16 +174,14 @@ while(True):
 	else:
 		for forum in forums:
 			forum_short = forum.split("/")[-2]
-			# ip_addresses = read_ips("all_proxies.txt")
 			page = proxy_request(forum)
-			# print(page)
-# 			page = session.get(forum)
-# 			print(page)
-# 			page = requests.get(forum)
+			counter += 1
+			current_time = datetime.now()
+			print(f"n = {counter} -- {current_time - start}")
+
 			soup = BeautifulSoup(page, 'html.parser')
 			titles = soup.find_all('tr', valign = "top")
 			for t in titles:
-				# print(t.text.strip())
 				link = t.find('a')['href']
 				link = link.split("&")
 				link = link[0]
