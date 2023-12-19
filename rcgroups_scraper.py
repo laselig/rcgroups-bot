@@ -6,8 +6,8 @@ from pytz import timezone
 import time, random, smtplib, requests
 from fake_useragent import UserAgent
 
-ACCESS_KEY = "AKIAVH75IAV62FZGFFMK"
-SECRET_KEY = "8oOjTJ3oWMA9MUVU/yUlaYbUt+yGCd7p7lkmecoZ"
+# ACCESS_KEY = "AKIAVH75IAV62FZGFFMK"
+# SECRET_KEY = "8oOjTJ3oWMA9MUVU/yUlaYbUt+yGCd7p7lkmecoZ"
 
 airplanes = "https://www.rcgroups.com/aircraft-fuel-airplanes-fs-w-38/"
 engines = "https://www.rcgroups.com/aircraft-fuel-engines-and-accessories-fs-w-362/"
